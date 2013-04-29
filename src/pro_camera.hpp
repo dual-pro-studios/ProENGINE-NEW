@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PRO_CAMERA_HPP
+#define PRO_CAMERA_HPP
 
 #include <SFML/Graphics.hpp>
 
@@ -24,4 +25,6 @@ private:
 };
 
 }
+
+#endif
 

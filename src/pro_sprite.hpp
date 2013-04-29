@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PRO_SPRITE_HPP
+#define PRO_SPRITE_HPP
 
 #include <SFML/Graphics.hpp>
 
@@ -19,3 +20,5 @@ private:
 };
 
 }
+
+#endif

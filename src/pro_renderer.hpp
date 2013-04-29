@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PRO_RENDERER_HPP
+#define PRO_RENDERER_HPP
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "pro_camera.hpp"
@@ -34,3 +35,4 @@ private:
 };
 
 }
+#endif

@@ -1,4 +1,5 @@
-//#ifndef PROENGINE_HPP
+#ifndef PROENGINE_HPP
+#define PROENGINE_HPP
 #include "pro_debug.hpp"
 #include "pro_renderer.hpp"
 #include "pro_camera.hpp"
@@ -9,4 +10,4 @@
 #define ProPERSECOND pro::renderer::PERSECOND
 #define ProRAW pro::renderer::RAW
 #define ProTEXT LPCWSTR
-//#endif
+#endif

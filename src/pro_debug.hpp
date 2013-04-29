@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PRO_DEBUG_HPP
+#define PRO_DEBUG_HPP
 
 #include <string>
 #include <iostream>
@@ -23,3 +24,5 @@ private:
 };
 
 }
+
+#endif
