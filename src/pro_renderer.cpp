@@ -73,6 +73,11 @@ float renderer::getFPS(fpsType type) {
 	return tempfps; // Return the requested time
 }
 
+// Return the renderer's RenderWindow
+sf::RenderWindow &renderer::getRW() {
+    return window;
+}
+
 // Get the camera used by the window
 camera &renderer::getWindowCam() {
 	return windowCam; // Return the camera of the window

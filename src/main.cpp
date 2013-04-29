@@ -74,8 +74,8 @@ int main(int argc, char* argv[]) {
 		//render->getWindowCam().move(0, 1);
 		render->begin_scene();
 		if(rtest) {
-			render->window.draw(test);
-			render->window.draw(test2);
+			render->getRW().draw(test);
+			render->getRW().draw(test2);
 			ts.draw(render->window);
 		}
 		render->end_scene();
