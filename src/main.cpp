@@ -1,5 +1,5 @@
-#define WINDOWS
-//#define MAC
+//#define WINDOWS
+#define MAC
 #include "ProENGINE.hpp"
 #if defined(WINDOWS)
 #include <Windows.h>
@@ -83,8 +83,6 @@ int main(int argc, char* argv[]) {
 	debug->log("Main loop has exited!");
 
 	debug->close();
-
-	Sleep(2000);
 
 	return 0;
 }

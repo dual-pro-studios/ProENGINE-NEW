@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "pro_camera.hpp"
 #define RAWFP 0
 #define PERSC 1
