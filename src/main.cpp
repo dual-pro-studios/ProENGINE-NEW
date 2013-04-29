@@ -1,12 +1,11 @@
 //#define WINDOWS
 #define MAC
 #include "ProENGINE.hpp"
+#include "pro_globals.hpp"
 #if defined(WINDOWS)
 #include <Windows.h>
 #endif
 #include <iostream>
-#include <sstream>
-#include <string>
 
 int main(int argc, char* argv[]) {
     pro::debug* debug = pro::debug::getInstance();
@@ -14,6 +13,7 @@ int main(int argc, char* argv[]) {
 	sf::RectangleShape test;
 	sf::CircleShape test2(100.f, 100);
 	pro::sprite ts;
+    debug->log(version.c_str());
     debug->log("Loading crono.png...");
 	ts.loadTexture("chrono.png");
 	float atime = 0;
@@ -27,10 +27,11 @@ int main(int argc, char* argv[]) {
 	test2.setPosition(110, 110);
 	test2.setFillColor(sf::Color::Red);
 	debug->log("Starting renderer with default params...");
+    render = new pro::renderer;
 	render->start();
 	render->window.setVerticalSyncEnabled(false);
 	debug->log("\tRenderer started!");
-	debug->log("\tEntering main loop...");
+	debug->log("\t\tEntering main loop...");
 	while(render->window.isOpen()) {
 		atime += render->getFPS(FRAMETIME);
 		btime += render->getFPS(FRAMETIME);
@@ -38,7 +39,7 @@ int main(int argc, char* argv[]) {
 		while(render->window.pollEvent(evt)) {
 			if(evt.type == sf::Event::Closed || pro::getInput() == ESC) {
 				render->close_window();
-				debug->log("\tThe window has been closed!");
+				debug->log("\t\tThe window has been closed!");
 			}
 			if(pro::getInput() == q)
 				std::cout << render->getFPS(FPS) << std::endl;
@@ -86,8 +87,9 @@ int main(int argc, char* argv[]) {
 		}
 		render->end_scene();
 	}
-	debug->log("Main loop has exited!");
-
+	debug->log("\tMain loop has exited!");
+    debug->log("Closing debug file...");
+    
 	debug->close();
 
 	return 0;
