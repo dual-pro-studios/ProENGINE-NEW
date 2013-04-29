@@ -1,16 +1,20 @@
 //#define WINDOWS
 #define MAC
 #include "ProENGINE.hpp"
-#include "pro_globals.hpp"
 #if defined(WINDOWS)
 #include <Windows.h>
 #endif
 #include <iostream>
+#include <sstream>
+#include <string>
 
 int main(int argc, char* argv[]) {
+    pro::debug* debug = pro::debug::getInstance();
+	debug->open("main.dbg");
 	sf::RectangleShape test;
 	sf::CircleShape test2(100.f, 100);
 	pro::sprite ts;
+    debug->log("Loading crono.png...");
 	ts.loadTexture("chrono.png");
 	float atime = 0;
 	float rtime = 0.001f;
@@ -22,52 +26,54 @@ int main(int argc, char* argv[]) {
 	test.setSize(sf::Vector2f(32, 32));
 	test2.setPosition(110, 110);
 	test2.setFillColor(sf::Color::Red);
-	pro::debug* debug = pro::debug::getInstance();
-	debug->open("main.dbg");
 	debug->log("Starting renderer with default params...");
 	render->start();
 	render->window.setVerticalSyncEnabled(false);
-	debug->log("Renderer started!");
-	debug->log("Entering main loop...");
+	debug->log("\tRenderer started!");
+	debug->log("\tEntering main loop...");
 	while(render->window.isOpen()) {
 		atime += render->getFPS(FRAMETIME);
 		btime += render->getFPS(FRAMETIME);
 		sf::Event evt;
 		while(render->window.pollEvent(evt)) {
-			if(evt.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+			if(evt.type == sf::Event::Closed || pro::getInput() == ESC) {
 				render->close_window();
-				debug->log("The window has been closed!");
+				debug->log("\tThe window has been closed!");
 			}
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			if(pro::getInput() == q)
 				std::cout << render->getFPS(FPS) << std::endl;
 		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && atime >= rtime) {
+		if(pro::getInput() == LEFTRIGHT && atime >= rtime) {
 			atime = 0;
 		}
 		else {
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && atime >= rtime) {
+			if(pro::getInput() == RIGHT && atime >= rtime) {
 				atime = 0;
 				render->getWindowCam().move(speed, 0);
 			}
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && atime >= rtime) {
+			if(pro::getInput() == LEFT && atime >= rtime) {
 				atime = 0;
 				render->getWindowCam().move(-speed, 0);
 			}
 		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && atime >= rtime) {
+		if(pro::getInput() == UPDOWN && atime >= rtime) {
 			atime = 0;
 		}
 		else {
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && atime >= rtime) {
+            //std::stringstream ss;
+            //ss << pro::getInput();
+            //std::string temp = ss.str();
+            //debug->log(temp.c_str());
+			if(pro::getInput() == UP && atime >= rtime) {
 				atime = 0;
 				render->getWindowCam().move(0, -speed);
 			}
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && atime >= rtime) {
+			if(pro::getInput() == DOWN && atime >= rtime) {
 				atime = 0;
 				render->getWindowCam().move(0, speed);
 			}
 		}
-		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && btime >= 0.15) {
+		if(pro::getInput() == SPACE && btime >= 0.15) {
 			btime = 0;
 			rtest = !rtest;
 		}

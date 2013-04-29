@@ -4,7 +4,8 @@
 #include "pro_renderer.hpp"
 #include "pro_camera.hpp"
 #include "pro_sprite.hpp"
-#include "pro_input.cpp"
+#include "pro_input.hpp"
+#include "pro_globals.hpp"
 #define DBGERR pro::debug::ERR
 #define DBGDEF pro::debug::NORMAL
 #define DBGFTL pro::debug::FATAL 

@@ -16,7 +16,7 @@ public:
 	enum windowState {OPEN, CLOSED}; // The state of the window
 	enum fpsType {RAW, PERSECOND}; // The type of time returned by the getFPS(fpsType type) function
 	windowState state; // The window state
-	void start(bool fullscreen = false, float width = 640, float height = 480, const std::string title = "ProENGINE 1.5.1A"); // Start the renderer with the given params
+	void start(bool fullscreen = false, float width = 640, float height = 480, const std::string title = "ProENGINE 1.5.1B"); // Start the renderer with the given params
 	void begin_scene(); // Begin drawing the things
 	void end_scene(); // Stop drawing the things and display them
 	void render_scene(); // Do begin_scene() and end_scene, not recommended.
