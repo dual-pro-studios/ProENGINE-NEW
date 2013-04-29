@@ -1,6 +1,7 @@
 //#define WINDOWS
 #define MAC
 #include "ProENGINE.hpp"
+#include "pro_globals.hpp"
 #if defined(WINDOWS)
 #include <Windows.h>
 #endif
@@ -21,7 +22,6 @@ int main(int argc, char* argv[]) {
 	test.setSize(sf::Vector2f(32, 32));
 	test2.setPosition(110, 110);
 	test2.setFillColor(sf::Color::Red);
-	pro::renderer* render = new pro::renderer;
 	pro::debug* debug = pro::debug::getInstance();
 	debug->open("main.dbg");
 	debug->log("Starting renderer with default params...");
@@ -30,8 +30,8 @@ int main(int argc, char* argv[]) {
 	debug->log("Renderer started!");
 	debug->log("Entering main loop...");
 	while(render->window.isOpen()) {
-		atime += render->getFPS(ProRAW);
-		btime += render->getFPS(ProRAW);
+		atime += render->getFPS(FRAMETIME);
+		btime += render->getFPS(FRAMETIME);
 		sf::Event evt;
 		while(render->window.pollEvent(evt)) {
 			if(evt.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
 				debug->log("The window has been closed!");
 			}
 			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-				std::cout << render->getFPS(ProPERSECOND) << std::endl;
+				std::cout << render->getFPS(FPS) << std::endl;
 		}
 		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && atime >= rtime) {
 			atime = 0;

@@ -4,10 +4,10 @@
 #include "pro_renderer.hpp"
 #include "pro_camera.hpp"
 #include "pro_sprite.hpp"
+#include "pro_input.cpp"
 #define DBGERR pro::debug::ERR
 #define DBGDEF pro::debug::NORMAL
 #define DBGFTL pro::debug::FATAL 
-#define ProPERSECOND pro::renderer::PERSECOND
-#define ProRAW pro::renderer::RAW
-#define ProTEXT LPCWSTR
+#define FPS pro::renderer::PERSECOND
+#define FRAMETIME pro::renderer::RAW
 #endif
