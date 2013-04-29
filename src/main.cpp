@@ -87,7 +87,8 @@ int main(int argc, char* argv[]) {
 		}
 		render->end_scene();
 	}
-	debug->log("\tMain loop has exited!");
+	debug->log("\t\tMain loop has exited!");
+    debug->log("\tRenderer stopped!");
     debug->log("Closing debug file...");
     
 	debug->close();
