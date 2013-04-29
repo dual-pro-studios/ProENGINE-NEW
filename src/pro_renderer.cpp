@@ -26,7 +26,7 @@ void renderer::start(bool fullscreen, float width, float height, const string ti
 
 void renderer::begin_scene() {
 	window.setView(windowCam.getCameraView());
-	window.clear(sf::Color::Color(75, 75, 75, 0));
+	window.clear(sf::Color::Color(0, 0, 0, 0));
 }
 
 void renderer::end_scene() {
