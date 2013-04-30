@@ -1,6 +1,7 @@
 //#define WINDOWS
 #define MAC
 #include "ProENGINE.hpp"
+//#include "pro_event.hpp"
 #if defined(WINDOWS)
 #include <Windows.h>
 #endif
@@ -34,15 +35,13 @@ int main(int argc, char* argv[]) {
 	while(render->window.isOpen()) {
 		atime += render->getFPS(FRAMETIME);
 		btime += render->getFPS(FRAMETIME);
-		sf::Event evt;
-		while(render->window.pollEvent(evt)) {
-			if(evt.type == sf::Event::Closed || pro::getInput() == ESC) {
-				render->close_window();
-				debug->log("\t\tThe window has been closed!");
-			}
-			if(pro::getInput() == q)
-				std::cout << render->getFPS(FPS) << std::endl;
-		}
+        if(pro::getEvent(render) == EVENT_EXIT || pro::getInput() == ESC) {
+            render->close_window();
+            debug->log("\t\tThe window has been closed!");
+        }
+        if(pro::getInput() == q) {
+            std::cout << render->getFPS(FPS) << std::endl;
+        }
 		if(pro::getInput() == LEFTRIGHT && atime >= rtime) {
 			atime = 0;
 		}
