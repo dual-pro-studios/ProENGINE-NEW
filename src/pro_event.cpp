@@ -2,9 +2,9 @@
 
 namespace pro {
     
-    int getEvent(pro::renderer* render) {
+    int getEvent(sf::RenderWindow &window) {
         int event;
-        while(render->window.pollEvent(evt)) {
+        while(window.pollEvent(evt)) {
             if(evt.type == sf::Event::Closed) {
                 event = EVENT_EXIT;
             }

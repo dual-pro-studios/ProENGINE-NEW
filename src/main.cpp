@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
 	while(render->window.isOpen()) {
 		atime += render->getFPS(FRAMETIME);
 		btime += render->getFPS(FRAMETIME);
-        if(pro::getEvent(render) == EVENT_EXIT || pro::getInput() == ESC) {
+        if(pro::getEvent(render->getRW()) == EVENT_EXIT || pro::getInput() == ESC) {
             render->close_window();
             debug->log("\t\tThe window has been closed!");
         }
