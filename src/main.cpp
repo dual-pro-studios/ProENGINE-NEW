@@ -1,7 +1,6 @@
 //#define WINDOWS
 #define MAC
 #include "ProENGINE.hpp"
-#include "pro_globals.hpp"
 #if defined(WINDOWS)
 #include <Windows.h>
 #endif
@@ -15,7 +14,7 @@ int main(int argc, char* argv[]) {
 	pro::sprite ts;
     debug->log(version.c_str());
     debug->log("Loading crono.png...");
-	ts.loadTexture("chrono.png");
+	ts.loadTexture("crono.png");
 	float atime = 0;
 	float rtime = 0.001f;
 	float btime = 0;
