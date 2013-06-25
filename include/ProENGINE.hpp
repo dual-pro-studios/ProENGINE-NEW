@@ -6,7 +6,6 @@
 #include "pro_sprite.hpp"
 #include "pro_input.hpp"
 #include "pro_globals.hpp"
-#include "pro_event.hpp"
 #include "pro_version.hpp"
 #include "pro_exception.hpp"
 #define DBGERR pro::debug::ERR

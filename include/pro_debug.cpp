@@ -22,7 +22,7 @@ bool debug::open(const char* fn) {
 	return success;
 }
 
-void debug::log(const char* info, DBG_TYPE type) {
+void debug::log(std::string info, DBG_TYPE type) {
 	if(dbgFile.is_open()) {
 		if(type == NORMAL) {
 			std::cout << "[DEBUG]: " << info << std::endl;

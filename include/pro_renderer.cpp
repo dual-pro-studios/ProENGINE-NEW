@@ -3,6 +3,8 @@
 using namespace pro;
 using namespace std;
 
+
+
 // Default Initializer
 renderer::renderer(void) {
 
@@ -19,15 +21,28 @@ renderer::~renderer(void) {
 // float height(start with the given height)
 // const string title(the title of the window)
 void renderer::start(bool fullscreen, float width, float height, const string title) {
+	pro::debug* debug = pro::debug::getInstance();
     // If fullscreen, start with the desktop resolution
 	if(fullscreen) {
 		window.create(sf::VideoMode::getDesktopMode(), title, sf::Style::Fullscreen);
 		windowCam.setSize((float)sf::VideoMode::getDesktopMode().width, (float)sf::VideoMode::getDesktopMode().height);
+		debug->log("Renderer is starting in fullscreen mode!");
 	}
     // Otherwise start with the given width and height
 	else {
 		window.create(sf::VideoMode((int)width, (int)height), title);
 		windowCam.setSize(width, height); // Set the camera size
+		string temp = "Renderer is starting with the params: width = ";
+		string temp2;
+		stringstream tmp;
+		tmp << (int)width;
+		tmp >> temp2;
+		temp += temp2 + ", height = ";
+		tmp.clear();
+		tmp << (int)height;
+		tmp >> temp2;
+		temp += temp2;
+		debug->log(temp);
 	}
     // Make the window viewport the camera's
 	window.setView(windowCam.getCameraView());

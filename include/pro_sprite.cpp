@@ -14,9 +14,15 @@ sprite::~sprite(void)
 
 // Load the texture for the sprite and set it
 // const char* filename(the file to load the texture from)
-void sprite::loadTexture(const char* filename) {
-	m_texture.loadFromFile(filename); // Load the texture
-	m_sprite.setTexture(m_texture); // Set the texture
+bool sprite::loadTexture(const char* filename) {
+	bool success;
+	if(m_texture.loadFromFile(filename)) // Load the texture
+		success = true;
+	else
+		success = false;
+	if(success)
+		m_sprite.setTexture(m_texture); // Set the texture
+	return success;
 }
 
 // Draw the sprite to a RenderWindow

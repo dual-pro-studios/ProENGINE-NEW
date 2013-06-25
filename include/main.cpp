@@ -1,10 +1,4 @@
-//#define WINDOWS
-#define MAC
 #include "ProENGINE.hpp"
-//#include "pro_event.hpp"
-#if defined(WINDOWS)
-#include <Windows.h>
-#endif
 #include <iostream>
 
 int main(int argc, char* argv[]) {
@@ -14,8 +8,9 @@ int main(int argc, char* argv[]) {
 	sf::CircleShape test2(100.f, 100);
 	pro::sprite ts;
     debug->log(version.c_str());
-    debug->log("Loading crono.png...");
-	ts.loadTexture("crono.png");
+    debug->log("Loading chrono.png...");
+	if(!ts.loadTexture("chrono.png"))
+		debug->log("COULD NOT LOAD chrono.png!!", pro::debug::DBG_TYPE::ERR);
 	float atime = 0;
 	float rtime = 0.001f;
 	float btime = 0;
@@ -35,10 +30,13 @@ int main(int argc, char* argv[]) {
 	while(render->window.isOpen()) {
 		atime += render->getFPS(FRAMETIME);
 		btime += render->getFPS(FRAMETIME);
-        if(pro::getEvent(render->getRW()) == EVENT_EXIT || pro::getInput() == ESC) {
-            render->close_window();
-            debug->log("\t\tThe window has been closed!");
-        }
+		sf::Event evt;
+		while(render->window.pollEvent(evt)) {
+			if(evt.type == sf::Event::Closed || pro::getInput() == ESC) {
+				render->close_window();
+				debug->log("\t\tThe window has been closed!");
+			}
+		}
         if(pro::getInput() == q) {
             std::cout << render->getFPS(FPS) << std::endl;
         }

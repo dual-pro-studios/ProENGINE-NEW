@@ -11,6 +11,6 @@
 
 #include <string>
 
-const std::string version = "ProENGINE 1.5.1BA";
+const std::string version = "ProENGINE 1.5.2A (Running SFML-2.0)";
 
 #endif

@@ -7,13 +7,14 @@
 
 namespace pro {
 
+// Singleton class
 class debug
 {
 public:
 	enum DBG_TYPE {NORMAL, ERR, FATAL};
 	static debug* getInstance();
 	bool open(const char* fn);
-	void log(const char* info, DBG_TYPE type = NORMAL);
+	void log(std::string info, DBG_TYPE type = NORMAL);
 	bool close();
 private:
 	debug() {}

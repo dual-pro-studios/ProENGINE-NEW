@@ -1,9 +1,11 @@
 #ifndef PRO_RENDERER_HPP
 #define PRO_RENDERER_HPP
 #include <string>
+#include <sstream>
 #include <SFML/Graphics.hpp>
 #include "pro_camera.hpp"
 #include "pro_version.hpp"
+#include "pro_debug.hpp"
 #define RAWFP 0 // Frametime
 #define PERSC 1 // FPS
 
