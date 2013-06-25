@@ -1,7 +1,7 @@
-#include "ProENGINE.hpp"
+#include "ProENGINE/ProENGINE.hpp"
 #include <iostream>
 
-int main(int argc, char* argv[]) {
+/*int main(int argc, char* argv[]) {
     pro::debug* debug = pro::debug::getInstance();
 	debug->open("main.dbg");
 	sf::RectangleShape test;
@@ -90,4 +90,15 @@ int main(int argc, char* argv[]) {
 	debug->close();
 
 	return 0;
+}*/
+
+int main(int argc, char* argv[]) {
+	pro::debug* debug = pro::debug::getInstance();
+	debug->open("main_debug.txt");
+	debug->log(version);
+	debug->log("Starting renderer with default parameters...");
+	render = new pro::renderer;
+	render->start();
+	debug->log("\tRenderer started!");
+	debug->log("Entering main loop...");
 }
