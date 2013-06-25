@@ -4,7 +4,6 @@
 //#include "pro_renderer.hpp"
 #include "pro_camera.hpp"
 #include "pro_sprite.hpp"
-#include "pro_input.hpp"
 #include "pro_globals.hpp"
 #include "pro_version.hpp"
 #include "pro_exception.hpp"

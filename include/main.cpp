@@ -93,12 +93,40 @@
 }*/
 
 int main(int argc, char* argv[]) {
-	pro::debug* debug = pro::debug::getInstance();
-	debug->open("main_debug.txt");
-	debug->log(version);
-	debug->log("Starting renderer with default parameters...");
+	pro::debug* main_debug = pro::debug::getInstance();
+	main_debug->open("main_debug.txt");
+	main_debug->log(version);
+	main_debug->log("-----------------------------------");
+	main_debug->log("Starting renderer with default parameters...");
 	render = new pro::renderer;
 	render->start();
-	debug->log("\tRenderer started!");
-	debug->log("Entering main loop...");
+	main_debug->log("\tRenderer started!");
+	main_debug->log("\t\tEntering main loop...");
+	while(render->window.isOpen()) {
+		sf::Event evt;
+		while(render->window.pollEvent(evt)) {
+			bool keypressed[5];
+			keypressed[0] = evt.KeyPressed && evt.key.code == sf::Keyboard::Escape;
+			if(keypressed[0] || evt.type == sf::Event::Closed) {
+				render->window.close();
+				main_debug->log("\t\tThe render window has been closed!");
+				
+			}
+		}
+		render->window.clear();
+		render->window.display();
+	}
+	main_debug->log("\t\tMain loop has exited!");
+
+	delete render;
+	render = 0;
+
+	main_debug->log("\tRenderer stopped and deallocated!");
+	main_debug->log("Closing debug file, good bye :)");
+	
+	main_debug->close();
+
+	std::cin.get();
+
+	return 0;
 }
