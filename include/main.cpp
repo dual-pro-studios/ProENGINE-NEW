@@ -1,120 +1,75 @@
 #include "ProENGINE/ProENGINE.hpp"
 #include <iostream>
 
-/*int main(int argc, char* argv[]) {
-    pro::debug* debug = pro::debug::getInstance();
-	debug->open("main.dbg");
-	sf::RectangleShape test;
-	sf::CircleShape test2(100.f, 100);
-	pro::sprite ts;
-    debug->log(version.c_str());
-    debug->log("Loading chrono.png...");
-	if(!ts.loadTexture("chrono.png"))
-		debug->log("COULD NOT LOAD chrono.png!!", pro::debug::DBG_TYPE::ERR);
-	float atime = 0;
-	float rtime = 0.001f;
-	float btime = 0;
-	float speed = 0.8f;
-	bool rtest = true;
-	test.setPosition(0, 0);
-	test.setFillColor(sf::Color::Green);
-	test.setSize(sf::Vector2f(32, 32));
-	test2.setPosition(110, 110);
-	test2.setFillColor(sf::Color::Red);
-	debug->log("Starting renderer with default params...");
-    render = new pro::renderer;
-	render->start();
-	render->window.setVerticalSyncEnabled(false);
-	debug->log("\tRenderer started!");
-	debug->log("\t\tEntering main loop...");
-	while(render->window.isOpen()) {
-		atime += render->getFPS(FRAMETIME);
-		btime += render->getFPS(FRAMETIME);
-		sf::Event evt;
-		while(render->window.pollEvent(evt)) {
-			if(evt.type == sf::Event::Closed || pro::getInput() == ESC) {
-				render->close_window();
-				debug->log("\t\tThe window has been closed!");
-			}
-		}
-        if(pro::getInput() == q) {
-            std::cout << render->getFPS(FPS) << std::endl;
-        }
-		if(pro::getInput() == LEFTRIGHT && atime >= rtime) {
-			atime = 0;
-		}
-		else {
-			if(pro::getInput() == RIGHT && atime >= rtime) {
-				atime = 0;
-				render->getWindowCam().move(speed, 0);
-			}
-			if(pro::getInput() == LEFT && atime >= rtime) {
-				atime = 0;
-				render->getWindowCam().move(-speed, 0);
-			}
-		}
-		if(pro::getInput() == UPDOWN && atime >= rtime) {
-			atime = 0;
-		}
-		else {
-            //std::stringstream ss;
-            //ss << pro::getInput();
-            //std::string temp = ss.str();
-            //debug->log(temp.c_str());
-			if(pro::getInput() == UP && atime >= rtime) {
-				atime = 0;
-				render->getWindowCam().move(0, -speed);
-			}
-			if(pro::getInput() == DOWN && atime >= rtime) {
-				atime = 0;
-				render->getWindowCam().move(0, speed);
-			}
-		}
-		if(pro::getInput() == SPACE && btime >= 0.15) {
-			btime = 0;
-			rtest = !rtest;
-		}
-		//render->getWindowCam().move(0, 1);
-		render->begin_scene();
-		if(rtest) {
-			render->getRW().draw(test);
-			render->getRW().draw(test2);
-			ts.draw(render->window);
-		}
-		render->end_scene();
-	}
-	debug->log("\t\tMain loop has exited!");
-    debug->log("\tRenderer stopped!");
-    debug->log("Closing debug file...");
-    
-	debug->close();
-
-	return 0;
-}*/
-
 int main(int argc, char* argv[]) {
 	pro::debug* main_debug = pro::debug::getInstance();
+	pro::vector<float> velocity;
+	pro::sprite player;
+	sf::Clock gt;
+	sf::Time gtt;
+	float dtime;
+	float speed = 300.f;
 	main_debug->open("main_debug.txt");
 	main_debug->log(version);
 	main_debug->log("-----------------------------------");
+	main_debug->log("Loading 'chrono.png'");
+	if(player.loadTexture("chrono.png"))
+		main_debug->log("\tLoad successful!");
+	else
+		main_debug->log("\tCould not load file!", pro::debug::DBG_TYPE::ERR);
+	player.getSprite().scale(3, 3);
 	main_debug->log("Starting renderer with default parameters...");
 	render = new pro::renderer;
-	render->start();
+	render->start(true);
 	main_debug->log("\tRenderer started!");
 	main_debug->log("\t\tEntering main loop...");
 	while(render->window.isOpen()) {
 		sf::Event evt;
+		dtime = gtt.asSeconds();
+		velocity.setX(0.f);
+		velocity.setY(0.f);
+
+		bool keypressed[5];
+		keypressed[0] = sf::Keyboard::isKeyPressed(sf::Keyboard::Escape);
+		keypressed[1] = sf::Keyboard::isKeyPressed(sf::Keyboard::Left);
+		keypressed[2] = sf::Keyboard::isKeyPressed(sf::Keyboard::Right);
+		keypressed[3] = sf::Keyboard::isKeyPressed(sf::Keyboard::Up);
+		keypressed[4] = sf::Keyboard::isKeyPressed(sf::Keyboard::Down);
+
 		while(render->window.pollEvent(evt)) {
-			bool keypressed[5];
-			keypressed[0] = evt.KeyPressed && evt.key.code == sf::Keyboard::Escape;
 			if(keypressed[0] || evt.type == sf::Event::Closed) {
 				render->window.close();
-				main_debug->log("\t\tThe render window has been closed!");
-				
+				main_debug->log("\t\t\tThe render window has been closed!");
 			}
 		}
+
+		if(keypressed[1] && keypressed[2]) {
+			velocity.setX(0.f);
+		}
+		else if(keypressed[1]) {
+			velocity.setX(-speed);
+		}
+		else if(keypressed[2]) {
+			velocity.setX(speed);
+		}
+
+		if(keypressed[3] && keypressed[4]) {
+			velocity.setY(0.f);
+		}
+		else if(keypressed[3]) {
+			velocity.setY(-speed);
+		}
+		else if(keypressed[4]) {
+			velocity.setY(speed);
+		}
+
 		render->window.clear();
+		
+		player.getSprite().move(velocity.getX() * dtime, velocity.getY() * dtime);
+		render->window.draw(player.getSprite());
+
 		render->window.display();
+		gtt = gt.restart();
 	}
 	main_debug->log("\t\tMain loop has exited!");
 
@@ -122,7 +77,7 @@ int main(int argc, char* argv[]) {
 	render = 0;
 
 	main_debug->log("\tRenderer stopped and deallocated!");
-	main_debug->log("Closing debug file, good bye :)");
+	main_debug->log("Closing debug file, goodbye :)");
 	
 	main_debug->close();
 

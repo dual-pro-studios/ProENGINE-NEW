@@ -7,6 +7,7 @@
 #include "pro_globals.hpp"
 #include "pro_version.hpp"
 #include "pro_exception.hpp"
+#include "pro_vector.hpp"
 #define DBGERR pro::debug::ERR
 #define DBGDEF pro::debug::NORMAL
 #define DBGFTL pro::debug::FATAL 
