@@ -81,15 +81,14 @@ int main(int argc, char* argv[]) {
             player.setSpeed(0.20);
         }
 
-		render->window.clear();
+		render->begin_scene();
 		
 		player.move(velocity.getX() * dtime, velocity.getY() * dtime);
-        render->getWindowCam().move(velocity.getX() * dtime, velocity.getY() * dtime);
-        //render->window.setView(render->getWindowCam().getCameraView());
         
 		render->window.draw(player.getSprite());
 
-		render->window.display();
+		render->end_scene();
+        
 		gtt = gt.restart();
 	}
 	main_debug->log("\tMain loop has exited!");
