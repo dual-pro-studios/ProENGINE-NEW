@@ -65,7 +65,7 @@ int main(int argc, char* argv[]) {
 
 		render->window.clear();
 		
-		player.getSprite().move(velocity.getX() * dtime, velocity.getY() * dtime);
+		player.move(velocity.getX() * dtime, velocity.getY() * dtime);
 		render->window.draw(player.getSprite());
 
 		render->window.display();

@@ -1,3 +1,6 @@
+#ifndef PRO_VECTOR
+#define PRO_VECTOR
+
 namespace pro {
 
 template<class T>class vector {
@@ -45,3 +48,5 @@ template<class T> T &vector<T>::getY() {
 }
 
 }
+
+#endif
