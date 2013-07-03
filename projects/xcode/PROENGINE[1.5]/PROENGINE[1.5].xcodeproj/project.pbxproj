@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD7B529517832F5F0043EDE4 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B528F17832F5F0043EDE4 /* sfml-audio.framework */; };
-		FD7B529617832F5F0043EDE4 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B529017832F5F0043EDE4 /* sfml-graphics.framework */; };
-		FD7B529717832F5F0043EDE4 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B529117832F5F0043EDE4 /* sfml-network.framework */; };
-		FD7B529817832F5F0043EDE4 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B529217832F5F0043EDE4 /* sfml-system.framework */; };
-		FD7B529917832F5F0043EDE4 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B529317832F5F0043EDE4 /* sfml-window.framework */; };
-		FD7B529A17832F5F0043EDE4 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B529417832F5F0043EDE4 /* SFML.framework */; };
-		FDE7625E172F8443000C68EE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FDE7625D172F8443000C68EE /* main.cpp */; };
+		FD7B52AE178339DB0043EDE4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD7B529F178339DB0043EDE4 /* main.cpp */; };
+		FD7B52AF178339DB0043EDE4 /* pro_camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD7B52A1178339DB0043EDE4 /* pro_camera.cpp */; };
+		FD7B52B0178339DB0043EDE4 /* pro_debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD7B52A3178339DB0043EDE4 /* pro_debug.cpp */; };
+		FD7B52B1178339DB0043EDE4 /* pro_renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD7B52A7178339DB0043EDE4 /* pro_renderer.cpp */; };
+		FD7B52B2178339DB0043EDE4 /* pro_sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FD7B52A9178339DB0043EDE4 /* pro_sprite.cpp */; };
+		FD7B52B91783BED40043EDE4 /* libsfml-audio.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B52B41783BED40043EDE4 /* libsfml-audio.2.0.dylib */; };
+		FD7B52BA1783BED40043EDE4 /* libsfml-graphics.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B52B51783BED40043EDE4 /* libsfml-graphics.2.0.dylib */; };
+		FD7B52BB1783BED40043EDE4 /* libsfml-network.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B52B61783BED40043EDE4 /* libsfml-network.2.0.dylib */; };
+		FD7B52BC1783BED40043EDE4 /* libsfml-window.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B52B71783BED40043EDE4 /* libsfml-window.2.0.dylib */; };
+		FD7B52BD1783BED40043EDE4 /* libsfml-system.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7B52B81783BED40043EDE4 /* libsfml-system.2.0.dylib */; };
 		FDE76260172F8443000C68EE /* PROENGINE_1_5_.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = FDE7625F172F8443000C68EE /* PROENGINE_1_5_.1 */; };
 /* End PBXBuildFile section */
 
@@ -31,14 +34,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FD7B528F17832F5F0043EDE4 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "../../../../../Downloads/SFML-2.0-osx-universal-mountain-lion-C++11/Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
-		FD7B529017832F5F0043EDE4 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "../../../../../Downloads/SFML-2.0-osx-universal-mountain-lion-C++11/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
-		FD7B529117832F5F0043EDE4 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../../Downloads/SFML-2.0-osx-universal-mountain-lion-C++11/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
-		FD7B529217832F5F0043EDE4 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../../../Downloads/SFML-2.0-osx-universal-mountain-lion-C++11/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
-		FD7B529317832F5F0043EDE4 /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "../../../../../Downloads/SFML-2.0-osx-universal-mountain-lion-C++11/Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
-		FD7B529417832F5F0043EDE4 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = "../../../../../Downloads/SFML-2.0-osx-universal-mountain-lion-C++11/Frameworks/SFML.framework"; sourceTree = "<group>"; };
+		FD7B529F178339DB0043EDE4 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../../include/main.cpp; sourceTree = "<group>"; };
+		FD7B52A1178339DB0043EDE4 /* pro_camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pro_camera.cpp; sourceTree = "<group>"; };
+		FD7B52A2178339DB0043EDE4 /* pro_camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pro_camera.hpp; sourceTree = "<group>"; };
+		FD7B52A3178339DB0043EDE4 /* pro_debug.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pro_debug.cpp; sourceTree = "<group>"; };
+		FD7B52A4178339DB0043EDE4 /* pro_debug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pro_debug.hpp; sourceTree = "<group>"; };
+		FD7B52A5178339DB0043EDE4 /* pro_exception.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pro_exception.hpp; sourceTree = "<group>"; };
+		FD7B52A6178339DB0043EDE4 /* pro_globals.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pro_globals.hpp; sourceTree = "<group>"; };
+		FD7B52A7178339DB0043EDE4 /* pro_renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pro_renderer.cpp; sourceTree = "<group>"; };
+		FD7B52A8178339DB0043EDE4 /* pro_renderer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pro_renderer.hpp; sourceTree = "<group>"; };
+		FD7B52A9178339DB0043EDE4 /* pro_sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pro_sprite.cpp; sourceTree = "<group>"; };
+		FD7B52AA178339DB0043EDE4 /* pro_sprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pro_sprite.hpp; sourceTree = "<group>"; };
+		FD7B52AB178339DB0043EDE4 /* pro_vector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pro_vector.hpp; sourceTree = "<group>"; };
+		FD7B52AC178339DB0043EDE4 /* pro_version.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pro_version.hpp; sourceTree = "<group>"; };
+		FD7B52AD178339DB0043EDE4 /* ProENGINE.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProENGINE.hpp; sourceTree = "<group>"; };
+		FD7B52B41783BED40043EDE4 /* libsfml-audio.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.0.dylib"; path = "../../../../../Desktop/sfml/test/lib/libsfml-audio.2.0.dylib"; sourceTree = "<group>"; };
+		FD7B52B51783BED40043EDE4 /* libsfml-graphics.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.0.dylib"; path = "../../../../../Desktop/sfml/test/lib/libsfml-graphics.2.0.dylib"; sourceTree = "<group>"; };
+		FD7B52B61783BED40043EDE4 /* libsfml-network.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.0.dylib"; path = "../../../../../Desktop/sfml/test/lib/libsfml-network.2.0.dylib"; sourceTree = "<group>"; };
+		FD7B52B71783BED40043EDE4 /* libsfml-window.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.0.dylib"; path = "../../../../../Desktop/sfml/test/lib/libsfml-window.2.0.dylib"; sourceTree = "<group>"; };
+		FD7B52B81783BED40043EDE4 /* libsfml-system.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.0.dylib"; path = "../../../../../Desktop/sfml/test/lib/libsfml-system.2.0.dylib"; sourceTree = "<group>"; };
 		FDE76259172F8443000C68EE /* PROENGINE[1.5] */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PROENGINE[1.5]"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDE7625D172F8443000C68EE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FDE7625F172F8443000C68EE /* PROENGINE_1_5_.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = PROENGINE_1_5_.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,27 +62,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD7B529517832F5F0043EDE4 /* sfml-audio.framework in Frameworks */,
-				FD7B529617832F5F0043EDE4 /* sfml-graphics.framework in Frameworks */,
-				FD7B529717832F5F0043EDE4 /* sfml-network.framework in Frameworks */,
-				FD7B529817832F5F0043EDE4 /* sfml-system.framework in Frameworks */,
-				FD7B529917832F5F0043EDE4 /* sfml-window.framework in Frameworks */,
-				FD7B529A17832F5F0043EDE4 /* SFML.framework in Frameworks */,
+				FD7B52B91783BED40043EDE4 /* libsfml-audio.2.0.dylib in Frameworks */,
+				FD7B52BA1783BED40043EDE4 /* libsfml-graphics.2.0.dylib in Frameworks */,
+				FD7B52BB1783BED40043EDE4 /* libsfml-network.2.0.dylib in Frameworks */,
+				FD7B52BC1783BED40043EDE4 /* libsfml-window.2.0.dylib in Frameworks */,
+				FD7B52BD1783BED40043EDE4 /* libsfml-system.2.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD7B52A0178339DB0043EDE4 /* ProENGINE */ = {
+			isa = PBXGroup;
+			children = (
+				FD7B52A1178339DB0043EDE4 /* pro_camera.cpp */,
+				FD7B52A2178339DB0043EDE4 /* pro_camera.hpp */,
+				FD7B52A3178339DB0043EDE4 /* pro_debug.cpp */,
+				FD7B52A4178339DB0043EDE4 /* pro_debug.hpp */,
+				FD7B52A5178339DB0043EDE4 /* pro_exception.hpp */,
+				FD7B52A6178339DB0043EDE4 /* pro_globals.hpp */,
+				FD7B52A7178339DB0043EDE4 /* pro_renderer.cpp */,
+				FD7B52A8178339DB0043EDE4 /* pro_renderer.hpp */,
+				FD7B52A9178339DB0043EDE4 /* pro_sprite.cpp */,
+				FD7B52AA178339DB0043EDE4 /* pro_sprite.hpp */,
+				FD7B52AB178339DB0043EDE4 /* pro_vector.hpp */,
+				FD7B52AC178339DB0043EDE4 /* pro_version.hpp */,
+				FD7B52AD178339DB0043EDE4 /* ProENGINE.hpp */,
+			);
+			name = ProENGINE;
+			path = ../../../../include/ProENGINE;
+			sourceTree = "<group>";
+		};
 		FDE7624E172F8443000C68EE = {
 			isa = PBXGroup;
 			children = (
-				FD7B528F17832F5F0043EDE4 /* sfml-audio.framework */,
-				FD7B529017832F5F0043EDE4 /* sfml-graphics.framework */,
-				FD7B529117832F5F0043EDE4 /* sfml-network.framework */,
-				FD7B529217832F5F0043EDE4 /* sfml-system.framework */,
-				FD7B529317832F5F0043EDE4 /* sfml-window.framework */,
-				FD7B529417832F5F0043EDE4 /* SFML.framework */,
+				FD7B52B41783BED40043EDE4 /* libsfml-audio.2.0.dylib */,
+				FD7B52B51783BED40043EDE4 /* libsfml-graphics.2.0.dylib */,
+				FD7B52B61783BED40043EDE4 /* libsfml-network.2.0.dylib */,
+				FD7B52B71783BED40043EDE4 /* libsfml-window.2.0.dylib */,
+				FD7B52B81783BED40043EDE4 /* libsfml-system.2.0.dylib */,
 				FDE7625C172F8443000C68EE /* PROENGINE[1.5] */,
 				FDE7625A172F8443000C68EE /* Products */,
 			);
@@ -84,7 +118,8 @@
 		FDE7625C172F8443000C68EE /* PROENGINE[1.5] */ = {
 			isa = PBXGroup;
 			children = (
-				FDE7625D172F8443000C68EE /* main.cpp */,
+				FD7B529F178339DB0043EDE4 /* main.cpp */,
+				FD7B52A0178339DB0043EDE4 /* ProENGINE */,
 				FDE7625F172F8443000C68EE /* PROENGINE_1_5_.1 */,
 			);
 			path = "PROENGINE[1.5]";
@@ -141,7 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDE7625E172F8443000C68EE /* main.cpp in Sources */,
+				FD7B52AE178339DB0043EDE4 /* main.cpp in Sources */,
+				FD7B52AF178339DB0043EDE4 /* pro_camera.cpp in Sources */,
+				FD7B52B0178339DB0043EDE4 /* pro_debug.cpp in Sources */,
+				FD7B52B1178339DB0043EDE4 /* pro_renderer.cpp in Sources */,
+				FD7B52B2178339DB0043EDE4 /* pro_sprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +245,10 @@
 					"\"$(SRCROOT)/../../../../../Downloads/SFML-2.0-osx-universal-leopard/extlibs\"",
 					"\"$(SRCROOT)/../../../../../Downloads/SFML-2.0-osx-universal-mountain-lion-C++11/Frameworks\"",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Desktop/sfml/test/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -218,6 +261,10 @@
 					"\"$(SRCROOT)/../../../../../Downloads/SFML-2.0-osx-universal-leopard/Frameworks\"",
 					"\"$(SRCROOT)/../../../../../Downloads/SFML-2.0-osx-universal-leopard/extlibs\"",
 					"\"$(SRCROOT)/../../../../../Downloads/SFML-2.0-osx-universal-mountain-lion-C++11/Frameworks\"",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../Desktop/sfml/test/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

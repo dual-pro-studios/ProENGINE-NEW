@@ -19,10 +19,10 @@ int main(int argc, char* argv[]) {
 		main_debug->log("\tCould not load file!", pro::debug::DBG_TYPE::ERR);
 	player.getSprite().scale(3, 3);
 	main_debug->log("Starting renderer with default parameters...");
-	render = new pro::renderer;
-	render->start(true);
-	main_debug->log("\tRenderer started!");
-	main_debug->log("\t\tEntering main loop...");
+	// render = new pro::renderer();
+	render->start();
+	main_debug->log("Renderer started!");
+	main_debug->log("\tEntering main loop...");
 	while(render->window.isOpen()) {
 		sf::Event evt;
 		dtime = gtt.asSeconds();
@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
 		while(render->window.pollEvent(evt)) {
 			if(keypressed[0] || evt.type == sf::Event::Closed) {
 				render->window.close();
-				main_debug->log("\t\t\tThe render window has been closed!");
+				main_debug->log("\t\tThe render window has been closed!");
 			}
 		}
 
@@ -71,12 +71,12 @@ int main(int argc, char* argv[]) {
 		render->window.display();
 		gtt = gt.restart();
 	}
-	main_debug->log("\t\tMain loop has exited!");
+	main_debug->log("\tMain loop has exited!");
 
 	delete render;
 	render = 0;
 
-	main_debug->log("\tRenderer stopped and deallocated!");
+	main_debug->log("Renderer stopped and deallocated!");
 	main_debug->log("Closing debug file, goodbye :)");
 	
 	main_debug->close();
