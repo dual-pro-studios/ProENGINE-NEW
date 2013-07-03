@@ -8,16 +8,19 @@ int main(int argc, char* argv[]) {
 	sf::Clock gt;
 	sf::Time gtt;
 	float dtime;
-	float speed = 300.f;
+    const float kspeed = 200.f;
+	float speed = 200.f;
 	main_debug->open("main_debug.txt");
 	main_debug->log(version);
 	main_debug->log("-----------------------------------");
-	main_debug->log("Loading 'chrono.png'");
-	if(player.loadTexture("chrono.png"))
+	main_debug->log("Loading 'chrono_hd.png'");
+	if(player.loadTexture("chrono_hd.png"))
 		main_debug->log("\tLoad successful!");
 	else
 		main_debug->log("\tCould not load file!", pro::debug::DBG_TYPE::ERR);
-	player.getSprite().scale(3, 3);
+    player.setFrame(pro::vector<int>(4, 4));
+    player.setSpeed(0.25);
+    player.getSprite().setTextureRect(sf::IntRect(player.getTexture().getSize().x / 4 * 0, 0, 48, 72));
 	main_debug->log("Starting renderer with default parameters...");
 	// render = new pro::renderer();
 	render->start();
@@ -42,6 +45,8 @@ int main(int argc, char* argv[]) {
 				main_debug->log("\t\tThe render window has been closed!");
 			}
 		}
+        
+        player.animate();
 
 		if(keypressed[1] && keypressed[2]) {
 			velocity.setX(0.f);
@@ -62,10 +67,26 @@ int main(int argc, char* argv[]) {
 		else if(keypressed[4]) {
 			velocity.setY(speed);
 		}
+        
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::X)) {
+            speed = 500;
+            player.setSpeed(0.10);
+        }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
+            speed = 100;
+            player.setSpeed(0.30);
+        }
+        else {
+            speed = kspeed;
+            player.setSpeed(0.20);
+        }
 
 		render->window.clear();
 		
 		player.move(velocity.getX() * dtime, velocity.getY() * dtime);
+        render->getWindowCam().move(velocity.getX() * dtime, velocity.getY() * dtime);
+        //render->window.setView(render->getWindowCam().getCameraView());
+        
 		render->window.draw(player.getSprite());
 
 		render->window.display();
@@ -80,8 +101,6 @@ int main(int argc, char* argv[]) {
 	main_debug->log("Closing debug file, goodbye :)");
 	
 	main_debug->close();
-
-	std::cin.get();
 
 	return 0;
 }

@@ -78,3 +78,138 @@ void sprite::move(float x, float y) {
     m_pos.setY(m_pos.getY() + y);
     m_sprite.setPosition(m_pos.getX(), m_pos.getY());
 }
+
+void sprite::setFrameX(int x) {
+    m_frames.setX(x);
+}
+
+void sprite::setFrameY(int y) {
+    m_frames.setY(y);
+}
+
+void sprite::setFrame(pro::vector<int> framenum) {
+    m_frames = framenum;
+}
+
+void sprite::setFrame(int x, int y) {
+    m_frames.setX(x);
+    m_frames.setY(y);
+}
+
+vector<int> sprite::getFrames() {
+    return m_frames;
+}
+
+int sprite::getFrameX() {
+    return m_frames.getX();
+}
+
+int sprite::getFrameY() {
+    return m_frames.getY();
+}
+
+void sprite::setSpeed(float speed) {
+    m_speed = speed;
+}
+
+void sprite::animate() {
+    m_dt = m_clock.restart();
+    m_time += m_dt.asSeconds();
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+        if(m_time >= m_speed) {
+            m_currentframe.setY(0);
+            m_currentframe.setX(0);
+            m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+            if(m_time >= m_speed * 2) {
+                m_currentframe.setX(1);
+                m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                if(m_time >= m_speed * 3) {
+                    m_currentframe.setX(2);
+                    m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                    if(m_time >= m_speed * 4) {
+                        m_currentframe.setX(3);
+                        m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                        m_time = 0;
+                    }
+                }
+            }
+        }
+        m_dir = DOWN;
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+        m_dir = LEFT;
+        if(m_time >= m_speed) {
+            m_currentframe.setY(1);
+            m_currentframe.setX(0);
+            m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+            if(m_time >= m_speed * 2) {
+                m_currentframe.setX(1);
+                m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                if(m_time >= m_speed * 3) {
+                    m_currentframe.setX(2);
+                    m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                    if(m_time >= m_speed * 4) {
+                        m_currentframe.setX(3);
+                        m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                        m_time = 0;
+                    }
+                }
+            }
+        }
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        if(m_time >= m_speed) {
+            m_currentframe.setY(2);
+            m_currentframe.setX(0);
+            m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+            if(m_time >= m_speed * 2) {
+                m_currentframe.setX(1);
+                m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                if(m_time >= m_speed * 3) {
+                    m_currentframe.setX(2);
+                    m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                    if(m_time >= m_speed * 4) {
+                        m_currentframe.setX(3);
+                        m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                        m_time = 0;
+                    }
+                }
+            }
+        }
+        m_dir = RIGHT;
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+        if(m_time >= m_speed) {
+            m_currentframe.setY(3);
+            m_currentframe.setX(0);
+            m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+            if(m_time >= m_speed * 2) {
+                m_currentframe.setX(1);
+                m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                if(m_time >= m_speed * 3) {
+                    m_currentframe.setX(2);
+                    m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                    if(m_time >= m_speed * 4) {
+                        m_currentframe.setX(3);
+                        m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / m_frames.getX() * m_currentframe.getX(), m_texture.getSize().y / m_frames.getY() * m_currentframe.getY(), m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+                        m_time = 0;
+                    }
+                }
+            }
+        }
+        m_dir = UP;
+    }
+    if(!sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+        if(m_dir == DOWN)
+            m_sprite.setTextureRect(sf::IntRect(0, m_texture.getSize().y / m_frames.getY() * 0, m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+        if(m_dir == LEFT)
+            m_sprite.setTextureRect(sf::IntRect(0, m_texture.getSize().y / m_frames.getY() * 1, m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+        if(m_dir == RIGHT)
+            m_sprite.setTextureRect(sf::IntRect(0, m_texture.getSize().y / m_frames.getY() * 2, m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+        if(m_dir == UP)
+            m_sprite.setTextureRect(sf::IntRect(0, m_texture.getSize().y / m_frames.getY() * 3, m_texture.getSize().x / m_frames.getX(), m_texture.getSize().y / m_frames.getY()));
+
+    }
+
+    //m_sprite.setTextureRect(sf::IntRect(m_texture.getSize().x / 4 * 0, 0, 48, 72));
+}

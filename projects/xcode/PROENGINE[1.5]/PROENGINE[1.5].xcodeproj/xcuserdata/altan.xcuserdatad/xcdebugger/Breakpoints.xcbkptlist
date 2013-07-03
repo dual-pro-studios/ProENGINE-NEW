@@ -8,13 +8,26 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../../../include/main.cpp"
-         timestampString = "394476177.164057"
+         timestampString = "394524610.865193"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "26"
-         endingLineNumber = "26"
+         startingLineNumber = "29"
+         endingLineNumber = "29"
          landmarkName = "main(int argc, char* argv[])"
          landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../../../include/ProENGINE/pro_sprite.cpp"
+         timestampString = "394523532.182383"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "209"
+         endingLineNumber = "209"
+         landmarkName = "sprite::animate()"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
