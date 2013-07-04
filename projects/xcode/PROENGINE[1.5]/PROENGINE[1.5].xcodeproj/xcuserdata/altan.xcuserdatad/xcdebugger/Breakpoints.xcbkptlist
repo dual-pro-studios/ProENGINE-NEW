@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../../../include/ProENGINE/pro_sprite.cpp"
-         timestampString = "394523532.182383"
+         timestampString = "394627565.637094"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "209"
-         endingLineNumber = "209"
+         startingLineNumber = "213"
+         endingLineNumber = "213"
          landmarkName = "sprite::animate()"
          landmarkType = "5">
       </FileBreakpoint>
