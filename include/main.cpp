@@ -19,11 +19,12 @@ int main(int argc, char* argv[]) {
 	else
 		main_debug->log("\tCould not load file!", pro::debug::DBG_TYPE::ERR);
     player.setFrame(pro::vector<int>(4, 4));
-    player.setSpeed(0.25);
+    player.setSpeed(0.20);
     player.getSprite().setTextureRect(sf::IntRect(player.getTexture().getSize().x / 4 * 0, 0, 48, 72));
 	main_debug->log("Starting renderer with default parameters...");
 	// render = new pro::renderer();
 	render->start();
+    render->window.setVerticalSyncEnabled(true);
 	main_debug->log("Renderer started!");
 	main_debug->log("\tEntering main loop...");
 	while(render->window.isOpen()) {
@@ -79,6 +80,10 @@ int main(int argc, char* argv[]) {
         else {
             speed = kspeed;
             player.setSpeed(0.20);
+        }
+        
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+            std::cout << "\t" << render->getFPS(FPS) << std::endl;
         }
 
 		render->begin_scene();
